@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">GameSuit</string>
+    <string name="welcome">Selamat Datang di Game Suit</string>
+    <string name="new_game">START GAME</string>
+    <string name="name">
+        <font color="#ff0000">Kertas</font>
+        <font color="#7cfc00">Gunting</font>
+        <font color="#FF3700B3">Batu</font>
+    </string>
+    <string name="player1">
+        <font color="#FF03DAC5">Player 1</font>
+    </string>
+    <string name="comp">
+        <font color="#FF03DAC5">Computer</font>
+    </string>
+    <string name="vs">VS</string>
+    <string name="win">YOU WIN</string>
+    <string name="lose">YOU LOSE</string>
+</resources>
