@@ -3,28 +3,41 @@ package com.example.gamesuit
 import android.graphics.Color
 import android.os.Bundle
 import android.widget.ImageView
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.gamesuit.element.Paper
 import com.example.gamesuit.element.Scissors
 import com.example.gamesuit.element.Rock
-import com.example.gamesuit.element.StringContainer
 import com.example.gamesuit.element.StringContainer.paper
 import com.example.gamesuit.element.StringContainer.rock
 import com.example.gamesuit.element.StringContainer.scissors
-import com.example.gamesuit.helper.Suit
-import com.example.gamesuit.helper.ResultSuit
 
 class GameActivity : AppCompatActivity() {
 
-    private lateinit var kertas_right: ImageView
-    private lateinit var batu_right: ImageView
-    private lateinit var gunting_right: ImageView
-    private lateinit var kertas_left: ImageView
-    private lateinit var batu_left: ImageView
-    private lateinit var gunting_left: ImageView
-    private lateinit var playAgainButton: ImageView
-    private lateinit var midImage: ImageView
+    private val kertas_right: ImageView by lazy {
+        findViewById(R.id.kertas_right)
+    }
+    private val batu_right: ImageView by lazy {
+        findViewById(R.id.batu_right)
+    }
+    private val gunting_right: ImageView by lazy {
+        findViewById(R.id.gunting_right)
+    }
+    private val kertas_left: ImageView by lazy {
+        findViewById(R.id.kertas_left)
+    }
+    private val batu_left: ImageView by lazy {
+        findViewById(R.id.batu_left)
+    }
+    private val gunting_left: ImageView by lazy {
+        findViewById(R.id.gunting_left)
+    }
+    private val playAgainButton: ImageView by lazy {
+        findViewById(R.id.play_again)
+    }
+    private val midImage: ImageView by lazy {
+        findViewById(R.id.result)
+    }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,37 +45,36 @@ class GameActivity : AppCompatActivity() {
 
 
 
-        kertas_right = findViewById(R.id.kertas_right)
-        batu_right = findViewById(R.id.batu_right)
-        gunting_right = findViewById(R.id.gunting_right)
-        kertas_left = findViewById(R.id.kertas_left)
-        batu_left = findViewById(R.id.batu_left)
-        gunting_left = findViewById(R.id.gunting_left)
-        playAgainButton = findViewById(R.id.play_again)
-
-
         kertas_left.setOnClickListener {
             kertas_left.onBoxClicked(kertas_left)
             batu_left.isEnabled = false
             gunting_left.isEnabled = false
+            val mySuit = "paper"
             startSuitWithCom()
+            resultGame(mySuit)
+            playAgain()
 
         }
         batu_left.setOnClickListener {
             batu_left.onBoxClicked(batu_left)
             kertas_left.isEnabled = false
             gunting_left.isEnabled = false
+            val mySuit = "rock"
             startSuitWithCom()
+            resultGame(mySuit)
+            playAgain()
 
         }
         gunting_left.setOnClickListener {
             gunting_left.onBoxClicked(gunting_left)
             batu_left.isEnabled = false
             kertas_left.isEnabled = false
+            val mySuit = "scissors"
             startSuitWithCom()
+            resultGame(mySuit)
+            playAgain()
 
         }
-
     }
 
     private fun ImageView.onBoxClicked(image: ImageView?) {
@@ -77,44 +89,62 @@ class GameActivity : AppCompatActivity() {
         val paper = Paper("paper")
         val rock = Rock("rock")
         val scissors = Scissors("scissors")
-        val resultList: List<Suit> = listOf(paper, rock, scissors)
-        val compSuit = resultList.random()
+    }
 
+    private fun resultGame(mySuit: String): Unit {
 
-        when (compSuit.name) {
+        val listElement = arrayOf(paper, rock, scissors)
+        val compSuit = listElement.random()
+        when (compSuit) {
             "paper" -> kertas_right.onBoxClicked(kertas_right)
             "scissors" -> gunting_right.onBoxClicked(gunting_right)
-            else -> batu_right.onBoxClicked(batu_right)
+            "rock" -> batu_right.onBoxClicked(batu_right)
         }
-        val mySuit = when {
-            kertas_left.hasOnClickListeners() -> Paper(StringContainer.paper)
-            gunting_left.hasOnClickListeners() -> Scissors(StringContainer.scissors)
-            else -> Rock(StringContainer.rock)
-        }
+        when (mySuit) {
+            "scissors" -> {
+                when (compSuit) {
+                    "scissors" -> midImage.setImageResource(R.drawable.draw)
+                    "paper" -> midImage.setImageResource(R.drawable.win)
+                    "rock" -> midImage.setImageResource(R.drawable.lost)
+                }
+            }
+            "paper" -> {
+                when (compSuit) {
+                    "scissors" -> midImage.setImageResource(R.drawable.lost)
+                    "paper" -> midImage.setImageResource(R.drawable.draw)
+                    "rock" -> midImage.setImageResource(R.drawable.win)
+                }
+            }
 
-        val result = mySuit.actionAgainst(compSuit)
+            "rock" -> {
+                when (compSuit) {
+                    "scissors" -> midImage.setImageResource(R.drawable.win)
+                    "paper" -> midImage.setImageResource(R.drawable.lost)
+                    "rock" -> midImage.setImageResource(R.drawable.draw)
+                }
+            }
+        }
+    }
 
-        if (result.status == "WIN") {
-            midImage.setImageResource(R.drawable.win)
-        }
-        if (result.status == "LOSE") {
-            midImage.setImageResource(R.drawable.lost)
-        } else {
-            midImage.setImageResource(R.drawable.draw)
-        }
+    private fun playAgain() {
         playAgainButton.setOnClickListener {
             batu_left.isEnabled = true
             kertas_left.isEnabled = true
             gunting_left.isEnabled = true
+            kertas_left.offBoxClicked(kertas_left)
+            gunting_left.offBoxClicked(gunting_left)
+            batu_left.offBoxClicked(batu_left)
             kertas_right.offBoxClicked(kertas_right)
             gunting_right.offBoxClicked(gunting_right)
             batu_right.offBoxClicked(batu_right)
+            midImage.setImageResource(R.drawable.versus)
             startSuitWithCom()
-
         }
-
     }
 }
+
+
+
 
 
 

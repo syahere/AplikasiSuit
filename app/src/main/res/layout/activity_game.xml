@@ -2,155 +2,145 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white">
+    android:background="@color/white"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+<TextView
+    android:id="@+id/name"
+    android:layout_width="97dp"
+    android:layout_height="wrap_content"
+    android:layout_alignParentStart="true"
+    android:layout_alignParentEnd="true"
+    android:layout_alignParentBottom="true"
+    android:layout_marginStart="150dp"
+    android:layout_marginEnd="150dp"
+    android:layout_marginBottom="489dp"
+    android:fontFamily="casual"
+    android:gravity="center"
+    android:rotation="-10"
+    android:text="@string/name"
+    android:textSize="30sp"
+    android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/name"
-        android:layout_width="97dp"
-        android:layout_height="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/name"
         android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="150dp"
-        android:layout_marginEnd="150dp"
-        android:layout_marginBottom="489dp"
-        android:fontFamily="casual"
-        android:gravity="center"
-        android:rotation="-10"
-        android:text="@string/name"
-        android:textSize="30sp"
-        android:textStyle="bold" />
+        android:layout_marginTop="327dp"
+        android:orientation="horizontal"
+        android:paddingStart="6dp"
+        android:paddingTop="6dp"
+        android:paddingEnd="6dp">
 
-    <ImageView
-        android:id="@+id/result"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="114dp"
-        android:layout_marginEnd="111dp"
-        android:layout_marginBottom="245dp"
-        android:src="@drawable/versus" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="242dp"
+            android:orientation="vertical"
+            android:paddingStart="20dp"
+            android:paddingTop="6dp"
+            android:paddingEnd="6dp">
 
-    <TextView
-        android:id="@+id/player1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="26dp"
-        android:layout_marginEnd="308dp"
-        android:layout_marginBottom="418dp"
-        android:fontFamily="sans-serif-smallcaps"
-        android:text="@string/player1"
-        android:gravity="center"
-        android:textSize="20sp"
-        android:textStyle="bold" />
+            <TextView
+                android:id="@+id/player1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-smallcaps"
+                android:gravity="center"
+                android:text="@string/player1"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
-    <ImageView
-        android:id="@+id/kertas_left"
-        android:layout_width="52dp"
-        android:layout_height="56dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="37dp"
-        android:layout_marginEnd="321dp"
-        android:layout_marginBottom="350dp"
-        android:src="@drawable/kertas"
-        android:scaleX="-1"/>
+            <ImageView
+                android:id="@+id/kertas_left"
+                android:layout_width="52dp"
+                android:layout_height="56dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="10dp"
+                android:scaleX="-1"
+                android:src="@drawable/kertas" />
 
-    <ImageView
-        android:id="@+id/gunting_left"
-        android:layout_width="52dp"
-        android:layout_height="56dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="37dp"
-        android:layout_marginEnd="321dp"
-        android:layout_marginBottom="280dp"
-        android:src="@drawable/gunting"
-        android:scaleX="-1"/>
+            <ImageView
+                android:id="@+id/gunting_left"
+                android:layout_width="52dp"
+                android:layout_height="56dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="10dp"
+                android:scaleX="-1"
+                android:src="@drawable/gunting" />
 
-    <ImageView
-        android:id="@+id/batu_left"
-        android:layout_width="52dp"
-        android:layout_height="56dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="37dp"
-        android:layout_marginEnd="321dp"
-        android:layout_marginBottom="210dp"
-        android:scaleX="-1"
-        android:src="@drawable/batu" />
+            <ImageView
+                android:id="@+id/batu_left"
+                android:layout_width="52dp"
+                android:layout_height="56dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="10dp"
+                android:scaleX="-1"
+                android:src="@drawable/batu" />
+        </LinearLayout>
 
-    <TextView
-        android:id="@+id/computer"
-        android:layout_width="97dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="289dp"
-        android:layout_marginEnd="26dp"
-        android:layout_marginBottom="416dp"
-        android:fontFamily="sans-serif-smallcaps"
-        android:gravity="center"
-        android:text="@string/comp"
-        android:textSize="20sp"
-        android:textStyle="bold" />
+        <ImageView
+            android:id="@+id/result"
+            android:layout_width="169dp"
+            android:layout_height="147dp"
+            android:src="@drawable/versus" />
 
-    <ImageView
-        android:id="@+id/kertas_right"
-        android:layout_width="52dp"
-        android:layout_height="56dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="321dp"
-        android:layout_marginEnd="37dp"
-        android:layout_marginBottom="350dp"
-        android:src="@drawable/kertas"
-        />
+        <LinearLayout
+            android:layout_width="125dp"
+            android:layout_height="250dp"
+            android:orientation="vertical"
+            android:paddingStart="6dp"
+            android:paddingTop="6dp"
+            android:paddingEnd="6dp">
 
-    <ImageView
-        android:id="@+id/gunting_right"
-        android:layout_width="52dp"
-        android:layout_height="56dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="321dp"
-        android:layout_marginEnd="37dp"
-        android:layout_marginBottom="280dp"
-        android:src="@drawable/gunting" />
+            <TextView
+                android:id="@+id/computer"
+                android:layout_width="109dp"
+                android:layout_height="34dp"
+                android:fontFamily="sans-serif-smallcaps"
+                android:gravity="center"
+                android:text="@string/comp"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
-    <ImageView
-        android:id="@+id/batu_right"
-        android:layout_width="52dp"
-        android:layout_height="56dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="321dp"
-        android:layout_marginEnd="37dp"
-        android:layout_marginBottom="210dp"
-        android:src="@drawable/batu" />
+            <ImageView
+                android:id="@+id/kertas_right"
+                android:layout_width="52dp"
+                android:layout_height="56dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/kertas" />
 
-    <ImageView
-        android:id="@+id/play_again"
-        android:layout_width="44dp"
-        android:layout_height="48dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="352dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="12dp"
-        android:src="@drawable/playagain" />
+            <ImageView
+                android:id="@+id/gunting_right"
+                android:layout_width="52dp"
+                android:layout_height="56dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/gunting" />
 
+            <ImageView
+                android:id="@+id/batu_right"
+                android:layout_width="52dp"
+                android:layout_height="56dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/batu" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+ <ImageView
+     android:id="@+id/play_again"
+     android:layout_width="44dp"
+     android:layout_height="48dp"
+     android:layout_alignParentStart="true"
+     android:layout_alignParentEnd="true"
+     android:layout_alignParentBottom="true"
+     android:layout_marginStart="352dp"
+     android:layout_marginEnd="16dp"
+     android:layout_marginBottom="12dp"
+     android:src="@drawable/playagain" />
 </RelativeLayout>

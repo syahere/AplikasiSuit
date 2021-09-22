@@ -1,5 +1,4 @@
 package com.example.gamesuit.element
-
 import com.example.gamesuit.helper.Suit
 
 class Rock(name: String) : Suit(name) {

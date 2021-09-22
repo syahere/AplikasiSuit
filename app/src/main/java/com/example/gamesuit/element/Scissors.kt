@@ -10,6 +10,7 @@ class Scissors(name: String) : Suit(name) {
 
     override fun winFrom(): String {
         return StringContainer.paper
+
     }
 
     override fun drawFrom(): String {
