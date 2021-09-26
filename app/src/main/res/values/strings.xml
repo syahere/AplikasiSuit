@@ -13,7 +13,8 @@
     <string name="comp">
         <font color="#FF03DAC5">Computer</font>
     </string>
-    <string name="vs">VS</string>
-    <string name="win">YOU WIN</string>
-    <string name="lose">YOU LOSE</string>
+    <string name="scoreplayer">Player = 0 </string>
+    <string name="scorecomp">Computer = 0 </string>
+    <string name="playagain">Play Again</string>
+
 </resources>
