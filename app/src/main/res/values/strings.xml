@@ -16,5 +16,11 @@
     <string name="scoreplayer">Player = 0 </string>
     <string name="scorecomp">Computer = 0 </string>
     <string name="playagain">Play Again</string>
+    <string name="txtprevious">Previous</string>
+    <string name="txtnext">Next</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="txtsetname">Set Your Name</string>
+    <string name="txtname">Tuliskan namamu di bawah ini</string>
 
 </resources>
